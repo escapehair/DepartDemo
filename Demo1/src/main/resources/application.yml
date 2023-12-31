@@ -1,0 +1,26 @@
+spring:
+  #数据库连接
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/depart
+    username: root
+    password: 123456
+
+  servlet:
+    multipart: 10MB
+    max-file-size: 100MB
+
+
+#mybatis
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+
+aliyun:
+  oss:
+    endpoint: https://oss-cn-hangzhou.aliyuncs.com
+    accessKeyId: LTAI4GCH1vX6DKqJWxd6nEuW
+    accessKeySecret: yBshYweHOpqDuhCArrVHwIiBKpyqSL
+    bucketName: web-tlias
