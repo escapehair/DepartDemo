@@ -37,7 +37,7 @@ public class UserController {
         return Result.success();
     }
 
-    /*新增*/
+    /*新增一个*/
     @PostMapping
     public Result insert(@RequestBody User user){   /*json类型需要添加注解*/
         userService.insert(user);
