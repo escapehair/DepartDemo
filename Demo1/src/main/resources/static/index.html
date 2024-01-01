@@ -1,0 +1,14 @@
+<html>
+<meta charset="UTF-8">
+<body>
+
+
+    <!--action提交位置，方法必须是post，enctype提交格式：文件上传设置为multipart-->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        姓名：<input type="text" name="username"><br>
+        年龄：<input type="text" name="age"><br>
+        头像：<input type="file" name="image"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

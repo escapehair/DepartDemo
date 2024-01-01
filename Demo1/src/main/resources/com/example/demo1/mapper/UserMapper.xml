@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!--固定配置-->
+
+<mapper namespace="com.example.demo1.mapper.UserMapper"> <!--在Mapper文件中右键-copy reference-->
+
+<update id="updateUser">
+    update depart.user
+    <set>
+        <if test = "name!= ''and name!=null "> name = #{name}, </if>
+        <if test = "gender != null and gender!= ''"> gender = #{gender}, </if>
+        <if test = "phone != null">  phone = #{phone},</if>
+        <if test = "updateDate != null"> update_date = #{updateDate}</if>
+    </set>
+    where id = #{id}
+</update>
+
+    <!--条件查询-->
+    <select id="list2" resultType="com.example.demo1.pojo.User">
+        select *
+        from depart.user
+        <where>
+            <if test = "name!= null">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test = "gender!=null">
+                and gender = #{gender}
+            </if>
+            <if test="creatDate!=null">
+                and creat_date between #{creatDate} and #{updateDate}
+            </if>
+        </where>
+        order by creat_date desc
+    </select>
+
+
+
+</mapper>
